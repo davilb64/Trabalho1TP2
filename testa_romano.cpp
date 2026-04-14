@@ -75,3 +75,8 @@
         EXPECT_EQ(converteRomano("MMMI"), -1);
         EXPECT_EQ(converteRomano("MMMM"), -1);
     }
+
+    TEST(RomanoTest, OrdemIncorreta) {
+        EXPECT_EQ(converteRomano("VIV"), -1);
+        EXPECT_EQ(converteRomano("XCX"), -1);
+    }
