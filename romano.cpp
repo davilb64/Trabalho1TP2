@@ -37,8 +37,12 @@ int converteRomano(const std::string& numeroRomano) {
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
-    int contadorBase5 = 0;
+    int contadorV = 0;
+    int contadorL = 0;
+    int contadorD = 0;
+
     for (size_t i = 0; i < vetorConvertido.size(); i++) {
+
         if (i + 3 < vetorConvertido.size()
             && vetorConvertido[i] == vetorConvertido[i + 1]
             && vetorConvertido[i] == vetorConvertido[i + 2]
@@ -46,31 +50,30 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             return false;
             }
 
-        if (confereBase5(vetorConvertido[i])) {
-            contadorBase5++;
-            if (contadorBase5 == 2) {
-                return false;
-            }
+        if (vetorConvertido[i] == 5) contadorV++;
+        else if (vetorConvertido[i] == 50) contadorL++;
+        else if (vetorConvertido[i] == 500) contadorD++;
+
+        if (contadorV > 1 || contadorL > 1 || contadorD > 1) {
+            return false;
         }
 
-        //1 não subtrai de >50
-        if (vetorConvertido[i] == 1
+        // 1 não subtrai de >= 50
+        if (i + 1 < vetorConvertido.size()
+            && vetorConvertido[i] == 1
             && (vetorConvertido[i + 1] == 50
-            || vetorConvertido[i + 1] == 100
-            || vetorConvertido[i + 1] == 500
-            || vetorConvertido[i + 1] == 1000)) {
+                || vetorConvertido[i + 1] == 100
+                || vetorConvertido[i + 1] == 500
+                || vetorConvertido[i + 1] == 1000)) {
+            return false;
+                }
+
+        // 5, 50, 500 não subtraem
+        if (i + 1 < vetorConvertido.size()
+            && confereBase5(vetorConvertido[i])
+            && vetorConvertido[i + 1] > vetorConvertido[i]) {
             return false;
             }
-
-        //5,50,500 não subtraem
-        if (vetorConvertido.size() >= 2
-            && (vetorConvertido[i] == 5
-                || vetorConvertido[i] == 50
-                || vetorConvertido[i] == 500)
-            &&vetorConvertido[i + 1] > vetorConvertido[i]) {
-            return false;
-            }
-
     }
     return true;
 }
