@@ -32,9 +32,8 @@ int converteRomano(const std::string& numeroRomano) {
     }
     if (confereErros(vetorConvertido)) {
         return operaVetor(vetorConvertido);
-    }else {
-        return -1;
     }
+    return -1;
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
@@ -46,12 +45,32 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             && vetorConvertido[i] == vetorConvertido[i + 3]) {
             return false;
             }
+
         if (confereBase5(vetorConvertido[i])) {
             contadorBase5++;
             if (contadorBase5 == 2) {
                 return false;
             }
         }
+
+        //1 não subtrai de >50
+        if (vetorConvertido[i] == 1
+            && (vetorConvertido[i + 1] == 50
+            || vetorConvertido[i + 1] == 100
+            || vetorConvertido[i + 1] == 500
+            || vetorConvertido[i + 1] == 1000)) {
+            return false;
+            }
+
+        //5,50,500 não subtraem
+        if (vetorConvertido.size() >= 2
+            && (vetorConvertido[i] == 5
+                || vetorConvertido[i] == 50
+                || vetorConvertido[i] == 500)
+            &&vetorConvertido[i + 1] > vetorConvertido[i]) {
+            return false;
+            }
+
     }
     return true;
 }
