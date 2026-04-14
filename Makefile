@@ -1,0 +1,41 @@
+all: testa_romano.cpp   romano.cpp romano.hpp romano.o
+	g++ -std=c++11 -Wall romano.o testa_romano.cpp -o testa_romano
+	./testa_romano
+
+compile: testa_romano.cpp   romano.cpp romano.hpp romano.o
+	g++ -std=c++11 -Wall romano.o testa_romano.cpp -o testa_romano
+	
+test: testa_romano	
+	./testa_romano
+	
+cpplint: testa_romano.cpp   romano.cpp romano.hpp
+	cpplint   --exclude=catch.hpp  *.*
+	
+gcov: testa_romano.cpp   romano.cpp romano.hpp 
+	g++ -std=c++11 -Wall -Wall -fprofile-arcs -ftest-coverage -c romano.cpp
+	g++ -std=c++11 -Wall -fprofile-arcs -ftest-coverage romano.o testa_romano.cpp -o testa_romano
+	./testa_romano
+	gcov *.cpp	
+	
+debug: testa_romano.cpp   romano.cpp romano.hpp 
+	g++ -std=c++11 -Wall -Wall -g -c romano.cpp
+	g++ -std=c++11 -Wall  -g romano.o testa_romano.cpp -o testa_romano
+	gdb testa_romano
+	
+	
+cppcheck: testa_romano.cpp   romano.cpp romano.hpp
+	cppcheck  --enable=warning . 
+
+valgrind: testa_romano
+	valgrind --leak-check=yes --log-file=valgrind.rpt testa_romano
+
+romano.o : romano.cpp romano.hpp
+	g++ -std=c++11 -Wall -Wall -c romano.cpp
+	
+testa_romano: 	testa_romano.cpp   romano.cpp romano.hpp romano.o
+	g++ -std=c++11 -Wall romano.o testa_romano.cpp -o testa_romano
+
+clean:
+	rm -rf *.o 
+	
+	
