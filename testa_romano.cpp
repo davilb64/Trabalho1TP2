@@ -19,11 +19,8 @@
 
     TEST(RomanoTest, Convert3Char) {
         EXPECT_EQ(converteRomano("III"),3);
-        EXPECT_EQ(converteRomano("VVV"),15);
         EXPECT_EQ(converteRomano("XXX"),30);
-        EXPECT_EQ(converteRomano("LLL"),150);
         EXPECT_EQ(converteRomano("CCC"),300);
-        EXPECT_EQ(converteRomano("DDD"),1500);
         EXPECT_EQ(converteRomano("MMM"),3000);
     }
 

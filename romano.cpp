@@ -38,6 +38,7 @@ int converteRomano(const std::string& numeroRomano) {
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
+    int contadorBase5 = 0;
     for (size_t i = 0; i < vetorConvertido.size(); i++) {
         if (i + 3 < vetorConvertido.size()
             && vetorConvertido[i] == vetorConvertido[i + 1]
@@ -45,6 +46,13 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             && vetorConvertido[i] == vetorConvertido[i + 3]) {
             return false;
             }
+
+        if (vetorConvertido[i] == 5 || vetorConvertido[i] == 50 || vetorConvertido[i] == 500) {
+            contadorBase5++;
+            if (contadorBase5 == 2) {
+                return false;
+            }
+        }
     }
     return true;
 }
