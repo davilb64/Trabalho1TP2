@@ -39,6 +39,14 @@ int converteRomano(const std::string& numeroRomano) {
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
+    int valorSoma = 0;
+    for (const int i : vetorConvertido) {
+        valorSoma += i;
+    }
+    if (valorSoma > 3000) {
+        return false;
+    }
+
     int contadorV = 0;
     int contadorL = 0;
     int contadorD = 0;
@@ -76,7 +84,7 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             return false;
             }
 
-        //trata mais de uma subtracao
+        // trata mais de uma subtracao
         if (i + 2 < vetorConvertido.size()
             && vetorConvertido[i + 2] > vetorConvertido[i]
             && vetorConvertido[i] == vetorConvertido[i + 1]) {
