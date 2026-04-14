@@ -17,7 +17,7 @@
         EXPECT_EQ(converteRomano("M"),1000);
     }
 
-    TEST(RomanoTest, 3char) {
+    TEST(RomanoTest, Convert3Char) {
         EXPECT_EQ(converteRomano("III"),3);
         EXPECT_EQ(converteRomano("VVV"),15);
         EXPECT_EQ(converteRomano("XXX"),30);
@@ -25,5 +25,14 @@
         EXPECT_EQ(converteRomano("CCC"),300);
         EXPECT_EQ(converteRomano("DDD"),1500);
         EXPECT_EQ(converteRomano("MMM"),3000);
+    }
+
+    TEST(RomanoTest, ConvertSubs) {
+        EXPECT_EQ(converteRomano("IV"),4);
+        EXPECT_EQ(converteRomano("IX"),9);
+        EXPECT_EQ(converteRomano("XLIX"),49);
+        EXPECT_EQ(converteRomano("CDXCIX"),499);
+        EXPECT_EQ(converteRomano("CMXCIX"),999);
+
     }
 
