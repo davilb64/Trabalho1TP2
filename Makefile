@@ -1,9 +1,9 @@
 all: testa_romano.cpp   romano.cpp romano.hpp romano.o
-	g++ -std=c++17 -Wall romano.o testa_romano.cpp -o testa_romano
+	g++ -std=c++17 -Wall romano.o testa_romano.cpp -o testa_romano -lgtest -lgtest_main -pthread
 	./testa_romano
 
 compile: testa_romano.cpp   romano.cpp romano.hpp romano.o
-	g++ -std=c++17 -Wall romano.o testa_romano.cpp -o testa_romano
+	g++ -std=c++17 -Wall romano.o testa_romano.cpp -o testa_romano -lgtest -lgtest_main -pthread
 	
 test: testa_romano	
 	./testa_romano
@@ -13,13 +13,13 @@ cpplint: testa_romano.cpp   romano.cpp romano.hpp
 	
 gcov: testa_romano.cpp   romano.cpp romano.hpp 
 	g++ -std=c++17 -Wall -Wall -fprofile-arcs -ftest-coverage -c romano.cpp
-	g++ -std=c++17 -Wall -fprofile-arcs -ftest-coverage romano.o testa_romano.cpp -o testa_romano
+	g++ -std=c++17 -Wall -fprofile-arcs -ftest-coverage romano.o testa_romano.cpp -o testa_romano -lgtest -lgtest_main -pthread
 	./testa_romano
-	gcov *.cpp	
+	gcov romano.cpp
 	
 debug: testa_romano.cpp   romano.cpp romano.hpp 
 	g++ -std=c++17 -Wall -Wall -g -c romano.cpp
-	g++ -std=c++17 -Wall  -g romano.o testa_romano.cpp -o testa_romano
+	g++ -std=c++17 -Wall  -g romano.o testa_romano.cpp -o testa_romano -lgtest -lgtest_main -pthread
 	gdb testa_romano
 	
 	
@@ -36,6 +36,6 @@ testa_romano:  testa_romano.cpp   romano.cpp romano.hpp romano.o
 	g++ -std=c++17 -Wall romano.o testa_romano.cpp -o testa_romano -lgtest -lgtest_main -pthread
 
 clean:
-	rm -rf *.o 
+	rm -rf *.o *.gc*
 	
 	

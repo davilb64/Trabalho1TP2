@@ -69,3 +69,9 @@
         EXPECT_EQ(converteRomano("XXC"), -1);
         EXPECT_EQ(converteRomano("CCM"), -1);
     }
+
+    TEST(RomanoTest, LimiteMaximo) {
+        EXPECT_EQ(converteRomano("MMM"), 3000);
+        EXPECT_EQ(converteRomano("MMMI"), -1);
+        EXPECT_EQ(converteRomano("MMMM"), -1);
+    }
