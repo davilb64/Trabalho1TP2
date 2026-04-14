@@ -46,8 +46,7 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             && vetorConvertido[i] == vetorConvertido[i + 3]) {
             return false;
             }
-
-        if (vetorConvertido[i] == 5 || vetorConvertido[i] == 50 || vetorConvertido[i] == 500) {
+        if (confereBase5(vetorConvertido[i])) {
             contadorBase5++;
             if (contadorBase5 == 2) {
                 return false;
@@ -55,6 +54,13 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
         }
     }
     return true;
+}
+
+bool confereBase5(const int numero) {
+    if (numero == 5 || numero == 50 || numero == 500) {
+        return true;
+    }
+    return false;
 }
 
 int operaVetor(const std::vector<int> &vetorConvertido) {
