@@ -45,4 +45,10 @@
         EXPECT_EQ(confereErros({1000,1000,1000,1000}),false);
     }
 
+    TEST(RomanoTest, FalhaBaseCincoNaoRepete) {
+        EXPECT_EQ(converteRomano("VV"), -1);
+        EXPECT_EQ(converteRomano("LL"), -1);
+        EXPECT_EQ(converteRomano("DD"), -1);
+        EXPECT_EQ(converteRomano("XVV"), -1);
+    }
 

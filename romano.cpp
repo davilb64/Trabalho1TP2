@@ -35,7 +35,6 @@ int converteRomano(const std::string& numeroRomano) {
     }else {
         return -1;
     }
-
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
