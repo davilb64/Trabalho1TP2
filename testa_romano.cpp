@@ -49,3 +49,14 @@
         EXPECT_EQ(converteRomano("XVV"), -1);
     }
 
+    TEST(RomanoTest, FalhaSubtracoesInvalidas) {
+        // I não pode subtrair de L, C, D, M
+        EXPECT_EQ(converteRomano("IL"), -1);
+        EXPECT_EQ(converteRomano("IC"), -1);
+        EXPECT_EQ(converteRomano("ID"), -1);
+        EXPECT_EQ(converteRomano("IM"), -1);
+        // V, L, D nunca subtraem
+        EXPECT_EQ(converteRomano("VX"), -1);
+        EXPECT_EQ(converteRomano("LC"), -1);
+        EXPECT_EQ(converteRomano("DM"), -1);
+    }
