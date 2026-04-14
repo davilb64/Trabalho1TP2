@@ -1,9 +1,11 @@
-#include "romano.hpp"
+// Copyright 2026 Davi Lopes Brito
+
+#include "./romano.hpp"
 #include <vector>
 
 int converteRomano(const std::string& numeroRomano) {
     std::vector<int> vetorConvertido;
-    for (const char c: numeroRomano) {
+    for (const char c : numeroRomano) {
         switch (c) {
             case 'I':
                 vetorConvertido.push_back(1);
@@ -42,7 +44,6 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
     int contadorD = 0;
 
     for (size_t i = 0; i < vetorConvertido.size(); i++) {
-
         if (i + 3 < vetorConvertido.size()
             && vetorConvertido[i] == vetorConvertido[i + 1]
             && vetorConvertido[i] == vetorConvertido[i + 2]
@@ -88,7 +89,8 @@ bool confereBase5(const int numero) {
 int operaVetor(const std::vector<int> &vetorConvertido) {
     int numeroDecimal = 0;
     for (size_t i = 0; i < vetorConvertido.size(); i++) {
-        if (i + 1 < vetorConvertido.size() && vetorConvertido[i] < vetorConvertido[i + 1]) {
+        if (i + 1 < vetorConvertido.size()
+            && vetorConvertido[i] < vetorConvertido[i + 1]) {
             numeroDecimal -= vetorConvertido[i];
         } else {
             numeroDecimal += vetorConvertido[i];

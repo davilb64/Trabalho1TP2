@@ -1,5 +1,7 @@
-#ifndef ROMANO_HPP
-#define ROMANO_HPP
+// Copyright 2026 Davi Lopes Brito
+
+#ifndef ROMANO_HPP_
+#define ROMANO_HPP_
 #include <string>
 #include <vector>
 
@@ -8,4 +10,4 @@ bool confereErros(const std::vector<int> &vetorConvertido);
 int operaVetor(const std::vector<int> &vetorConvertido);
 bool confereBase5(int numero);
 
-#endif
+#endif  // ROMANO_HPP_
