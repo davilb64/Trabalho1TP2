@@ -36,10 +36,13 @@
     }
 
     TEST(RomanoTest, FalhasIniciais) {
-        EXPECT_EQ(converteRomano("IIII"),-1);
-        EXPECT_EQ(converteRomano("VVVV"),-1);
-        EXPECT_EQ(converteRomano("IIIX"),-1);
-        EXPECT_EQ(converteRomano("XXXX"),-1);
-        EXPECT_EQ(converteRomano("MMMM"),-1);
+        EXPECT_EQ(confereErros({1,1,1,1}),-1);
+        EXPECT_EQ(confereErros({5,5,5,5}),-1);
+        EXPECT_EQ(confereErros({10,10,10,10}),-1);
+        EXPECT_EQ(confereErros({50,50,50,50}),-1);
+        EXPECT_EQ(confereErros({100,100,100,100}),-1);
+        EXPECT_EQ(confereErros({500,500,500,500}),-1);
+        EXPECT_EQ(confereErros({1000,1000,1000,1000}),-1);
     }
+
 

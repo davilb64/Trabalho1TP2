@@ -1,8 +1,7 @@
 #include "romano.hpp"
 #include <vector>
 
-int converteRomano(std::string numeroRomano) {
-    int numeroDecimal = 0;
+int converteRomano(const std::string& numeroRomano) {
     std::vector<int> vetorConvertido;
     for (const char c: numeroRomano) {
         switch (c) {
@@ -31,7 +30,20 @@ int converteRomano(std::string numeroRomano) {
                 return -1;
         }
     }
+    if (confereErros(vetorConvertido)) {
+        return operaVetor(vetorConvertido);
+    }else {
+        return -1;
+    }
 
+}
+
+bool confereErros(const std::vector<int> &vetorConvertido) {
+    
+}
+
+int operaVetor(const std::vector<int> &vetorConvertido) {
+    int numeroDecimal = 0;
     for (size_t i = 0; i < vetorConvertido.size(); i++) {
         if (i + 1 < vetorConvertido.size() && vetorConvertido[i] < vetorConvertido[i + 1]) {
             numeroDecimal -= vetorConvertido[i];
