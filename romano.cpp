@@ -39,14 +39,6 @@ int converteRomano(const std::string& numeroRomano) {
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
-    int valorSoma = 0;
-    for (const int i : vetorConvertido) {
-        valorSoma += i;
-    }
-    if (valorSoma > 3000) {
-        return false;
-    }
-
     int contadorV = 0;
     int contadorL = 0;
     int contadorD = 0;
@@ -90,7 +82,15 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             && vetorConvertido[i] == vetorConvertido[i + 1]) {
             return false;
         }
-    }
+
+        // trata ordem
+        if (i + 2 < vetorConvertido.size())
+            if (vetorConvertido[i] < vetorConvertido[i + 1]) {
+                if (vetorConvertido[i + 2] >= vetorConvertido[i]) {
+                    return false;
+                }
+            }
+        }
     return true;
 }
 
@@ -110,6 +110,9 @@ int operaVetor(const std::vector<int> &vetorConvertido) {
         } else {
             numeroDecimal += vetorConvertido[i];
         }
+    }
+    if (numeroDecimal > 3000) {
+        return -1;
     }
     return numeroDecimal;
 }
