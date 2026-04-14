@@ -36,13 +36,13 @@
     }
 
     TEST(RomanoTest, FalhasIniciais) {
-        EXPECT_EQ(confereErros({1,1,1,1}),-1);
-        EXPECT_EQ(confereErros({5,5,5,5}),-1);
-        EXPECT_EQ(confereErros({10,10,10,10}),-1);
-        EXPECT_EQ(confereErros({50,50,50,50}),-1);
-        EXPECT_EQ(confereErros({100,100,100,100}),-1);
-        EXPECT_EQ(confereErros({500,500,500,500}),-1);
-        EXPECT_EQ(confereErros({1000,1000,1000,1000}),-1);
+        EXPECT_EQ(confereErros({1,1,1,1}),false);
+        EXPECT_EQ(confereErros({5,5,5,5}),false);
+        EXPECT_EQ(confereErros({10,10,10,10}),false);
+        EXPECT_EQ(confereErros({50,50,50,50}),false);
+        EXPECT_EQ(confereErros({100,100,100,100}),false);
+        EXPECT_EQ(confereErros({500,500,500,500}),false);
+        EXPECT_EQ(confereErros({1000,1000,1000,1000}),false);
     }
 
 
