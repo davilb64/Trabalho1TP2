@@ -77,7 +77,7 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             }
 
         //trata mais de uma subtracao
-        if (i + 1 < vetorConvertido.size()
+        if (i + 2 < vetorConvertido.size()
             && vetorConvertido[i + 2] > vetorConvertido[i]
             && vetorConvertido[i] == vetorConvertido[i + 1]) {
             return false;
