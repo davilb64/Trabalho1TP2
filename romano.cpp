@@ -1,8 +1,10 @@
 #include "romano.hpp"
 
 int converteRomano(std::string numeroRomano) {
-    if (numeroRomano == "I") {
-        return 1;
+    for (const char c: numeroRomano) {
+        if (c == 'I') {
+            return 1;
+        }
     }
     return -1;
 }
