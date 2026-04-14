@@ -33,6 +33,13 @@
         EXPECT_EQ(converteRomano("XLIX"),49);
         EXPECT_EQ(converteRomano("CDXCIX"),499);
         EXPECT_EQ(converteRomano("CMXCIX"),999);
+    }
 
+    TEST(RomanoTest, FalhasIniciais) {
+        EXPECT_EQ(converteRomano("IIII"),-1);
+        EXPECT_EQ(converteRomano("VVVV"),-1);
+        EXPECT_EQ(converteRomano("IIIX"),-1);
+        EXPECT_EQ(converteRomano("XXXX"),-1);
+        EXPECT_EQ(converteRomano("MMMM"),-1);
     }
 
