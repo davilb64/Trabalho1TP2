@@ -39,7 +39,15 @@ int converteRomano(const std::string& numeroRomano) {
 }
 
 bool confereErros(const std::vector<int> &vetorConvertido) {
-
+    for (size_t i = 0; i < vetorConvertido.size(); i++) {
+        if (i + 3 < vetorConvertido.size()
+            && vetorConvertido[i] == vetorConvertido[i + 1]
+            && vetorConvertido[i] == vetorConvertido[i + 2]
+            && vetorConvertido[i] == vetorConvertido[i + 3]) {
+            return false;
+            }
+    }
+    return true;
 }
 
 int operaVetor(const std::vector<int> &vetorConvertido) {
