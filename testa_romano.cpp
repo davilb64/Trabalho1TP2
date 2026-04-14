@@ -60,3 +60,10 @@
         EXPECT_EQ(converteRomano("LC"), -1);
         EXPECT_EQ(converteRomano("DM"), -1);
     }
+
+    TEST(RomanoTest, FalhaSubtracaoMultipla) {
+        EXPECT_EQ(converteRomano("IIX"), -1);
+        EXPECT_EQ(converteRomano("IIV"), -1);
+        EXPECT_EQ(converteRomano("XXC"), -1);
+        EXPECT_EQ(converteRomano("CCM"), -1);
+    }
