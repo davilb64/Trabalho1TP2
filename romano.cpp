@@ -81,16 +81,17 @@ bool confereErros(const std::vector<int> &vetorConvertido) {
             && vetorConvertido[i + 2] > vetorConvertido[i]
             && vetorConvertido[i] == vetorConvertido[i + 1]) {
             return false;
-        }
+            }
 
         // trata ordem
-        if (i + 2 < vetorConvertido.size())
+        if (i + 2 < vetorConvertido.size()) {
             if (vetorConvertido[i] < vetorConvertido[i + 1]) {
                 if (vetorConvertido[i + 2] >= vetorConvertido[i]) {
                     return false;
                 }
             }
         }
+    }
     return true;
 }
 
