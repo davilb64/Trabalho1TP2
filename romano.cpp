@@ -1,11 +1,12 @@
 #include "romano.hpp"
 
 int converteRomano(std::string numeroRomano) {
+    int numeroDecimal = 0;
     for (const char c: numeroRomano) {
         if (c == 'I') {
-            return 1;
+            numeroDecimal++;
         }
     }
-    return -1;
+    return numeroDecimal;
 }
 
