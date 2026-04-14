@@ -1,0 +1,2 @@
+É obrigatório ter o Google Test instalado no sistema para que a compilação funcione.
+Como usar: Digite make all no terminal para compilar e rodar os testes, e utilize os atalhos make gcov, make valgrind, make cppcheck e make cpplint para as demais verificações.
