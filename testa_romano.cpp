@@ -80,3 +80,8 @@
         EXPECT_EQ(converteRomano("VIV"), -1);
         EXPECT_EQ(converteRomano("XCX"), -1);
     }
+
+    TEST(RomanoTest, CaracteresForaDoRomanos) {
+        EXPECT_EQ(converteRomano("PL"), -1);
+        EXPECT_EQ(converteRomano("OK"), -1);
+    }

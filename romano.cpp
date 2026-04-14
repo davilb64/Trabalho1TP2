@@ -111,7 +111,7 @@ int operaVetor(const std::vector<int> &vetorConvertido) {
             numeroDecimal += vetorConvertido[i];
         }
     }
-    if (numeroDecimal > 3000) {
+    if (numeroDecimal > 3000 || numeroDecimal <= 0) {
         return -1;
     }
     return numeroDecimal;
